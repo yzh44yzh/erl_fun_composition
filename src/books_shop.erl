@@ -35,12 +35,13 @@
 
 %%% Module API
 
--spec validate_incoming_data(JsonData :: map()) -> {ok, map()} | {error, term()}.
+-spec validate_incoming_data(JsonData :: map()) ->
+    {ok, map()} | {error, invalid_incoming_data}.
 validate_incoming_data(JsonData) ->
     %% jesse:validate("order", JsonData)
     case rand_success() of
         true -> {ok, JsonData};
-        false -> {error, invalid_data}
+        false -> {error, invalid_incoming_data}
     end.
 
 
@@ -98,8 +99,8 @@ test_data() ->
                 <<"author">> => <<"Scott Wlaschin">>
             },
             #{
-                <<"title">> => <<"Удовольствие от Х">>,
-                <<"author">> => <<"Стивен Строгац">>
+                <<"title">> => <<"Удовольствие от Х"/utf8>>,
+                <<"author">> => <<"Стивен Строгац"/utf8>>
             },
             #{
                 <<"title">> => <<"Distributed systems for fun and profit">>,
