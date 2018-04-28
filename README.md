@@ -42,13 +42,16 @@
 
 Для этого у нас есть следущие функции:
 ```
--spec validate_incoming_data(SchemaName :: binary(), JsonData :: map()) ->
-    {ok, map()} | {error, term()}.
+-spec validate_incoming_data(JsonData :: map()) -> {ok, map()} | {error, term()}.
+
 -spec validate_cat(CatName :: binary()) -> {ok, cat()} | {error, cat_not_found}.
+
 -spec validate_address(Address :: binary()) -> {ok, address()} | {error, invalid_address}.
+
 -spec get_book(Title :: binary(), Author :: binary()) -> {ok, book()} | {error, not_found}.
+
 -spec create_order(Cat :: cat(), Address :: address(), Books :: [book()]) -> order().
-````
+```
 
 Нужно выполнить композицию этих функций.
 

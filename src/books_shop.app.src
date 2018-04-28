@@ -1,0 +1,9 @@
+{application, books_shop,
+    [
+        {description, "Books shop for cats"},
+        {vsn, "0.1.0"},
+        {modules, []},
+        {registered, []},
+        {applications, [kernel, stdlib]},
+        {env, []}
+    ]}.
