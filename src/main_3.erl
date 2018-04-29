@@ -1,27 +1,33 @@
 -module(main_3).
 
-%%validate_something(SomeData) ->
-%%    case check_rule_1(SomeData) of
-%%        false -> {error, rule_1_error};
-%%        true -> validate_something_step2(SomeData)
-%%    end.
-%%
-%%validate_something_step2(SomeData) ->
-%%    case check_rule_2(SomeData) of
-%%        false -> {error, rule_2_error};
-%%        true -> validate_something_step3(SomeData)
-%%    end.
-%%
-%%validate_something_step3(SomeData) ->
-%%    case check_rule_3(SomeData) of
-%%        false -> {error, rule_3_error};
-%%        true -> validate_something_step4(SomeData)
-%%    end.
-%%
-%%validate_something_step4(SomeData) ->
-%%    case check_rule_4(SomeData) of
-%%        false -> {error, rule_4_error};
-%%        true -> ok
-%%    end.
-%%
-%%
+-export([main/0]).
+
+
+-spec main() -> {ok, books_shop:order()} | {error, term()}.
+main() ->
+    handle_create_order(books_shop:test_data()).
+
+
+-spec handle_create_order(map()) -> {ok, books_shop:order()} | {error, term()}.
+handle_create_order(Data0) ->
+    try
+        Data = books_shop:validate_incoming_data_ex(Data0),
+        #{
+            <<"cat">> := Cat0,
+            <<"address">> := Address0,
+            <<"books">> := Books0
+        } = Data,
+        Cat = books_shop:validate_cat_ex(Cat0),
+        Address = books_shop:validate_address_ex(Address0),
+        Books = lists:map(
+            fun(#{<<"title">> := Title, <<"author">> := Author}) ->
+                books_shop:get_book_ex(Title, Author)
+            end,
+            Books0
+        ),
+        Order = books_shop:create_order(Cat, Address, Books),
+        {ok, Order}
+    catch
+        throw:Error -> Error
+    end.
+
