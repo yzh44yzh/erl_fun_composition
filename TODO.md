@@ -1,8 +1,6 @@
 
 # variant_4: pipeline
 
-- Сперва чистый пример на Result-функциях
-
 - Реализовать с обертками для books_shop функций
 
 - rebar compile, shell, dialyzer
