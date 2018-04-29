@@ -1,11 +1,4 @@
 
-# variant_4: pipeline
-
-- Реализовать с обертками для books_shop функций
-
-- rebar compile, shell, dialyzer
-
-
 # variant_5: monads
 
 - сперва реализовать на хаскеле
