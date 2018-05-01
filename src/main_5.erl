@@ -10,7 +10,7 @@ main() ->
 
 -spec handle_create_order(map()) -> {ok, books_shop:order()} | {error, term()}.
 handle_create_order(Data) ->
-    pipeline:do([
+    wannabe_haskell:do([
         {data, fun books_shop:validate_incoming_data/1, Data},
 
         {cat_0, fun(#{<<"cat">> := Cat0}) -> {ok, Cat0} end, data},
@@ -32,7 +32,6 @@ handle_create_order(Data) ->
             end,
             books_0},
 
-        {order, fun books_shop:create_order/3, [cat, address, books]},
-        order
+        {order, fun books_shop:create_order/3, [cat, address, books]}
     ]).
 
