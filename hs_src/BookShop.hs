@@ -41,6 +41,7 @@ validate_cat cat_name =
 validate_address :: String -> Either ValidationError Address
 validate_address addr_str =
   Right $ Address addr_str
+  -- Left InvalidAddress
 
 
 get_book :: String -> String -> Either ValidationError Book

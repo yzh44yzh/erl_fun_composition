@@ -1,6 +1,6 @@
 compile:
-	ghc -outputdir out Main.hs
+	ghc -o book_shop -outputdir out Main4.hs
 
 clean:
 	-rm out/*
-	-rm Main
+	-rm book_shop
