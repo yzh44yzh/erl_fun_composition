@@ -65,6 +65,7 @@ test_data() ->
 
 -spec validate_incoming_data(JsonData :: map()) ->
     {ok, map()} | {error, invalid_incoming_data}.
+
 validate_incoming_data(JsonData) ->
     %% jesse:validate("order", JsonData)
     case rand_success() of
@@ -73,7 +74,9 @@ validate_incoming_data(JsonData) ->
     end.
 
 
--spec validate_cat(CatName :: binary()) -> {ok, cat()} | {error, cat_not_found}.
+-spec validate_cat(CatName :: binary()) ->
+    {ok, cat()} | {error, cat_not_found}.
+
 validate_cat(CatName) ->
     %% find cat in database
     case rand_success() of
@@ -82,7 +85,9 @@ validate_cat(CatName) ->
     end.
 
 
--spec validate_address(Address :: binary()) -> {ok, address()} | {error, invalid_address}.
+-spec validate_address(Address :: binary()) ->
+    {ok, address()} | {error, invalid_address}.
+
 validate_address(Address) ->
     %% send request to third-party service
     case rand_success() of
@@ -93,6 +98,7 @@ validate_address(Address) ->
 
 -spec get_book(Title :: binary(), Author :: binary()) ->
     {ok, book()} | {error, {book_not_found, binary()}}.
+
 get_book(Title, Author) ->
     %% find book in database
     case rand_success() of
@@ -106,7 +112,9 @@ get_book(Title, Author) ->
     end.
 
 
--spec create_order(Cat :: cat(), Address :: address(), Books :: [book()]) -> order().
+-spec create_order(Cat :: cat(), Address :: address(), Books :: [book()]) ->
+    order().
+
 create_order(Cat, Address, Books) ->
     #order{
         customer = Cat,
