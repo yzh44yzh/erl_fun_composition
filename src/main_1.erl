@@ -3,12 +3,16 @@
 -export([main/0]).
 
 
--spec main() -> {ok, books_shop:order()} | {error, term()}.
+-spec main() ->
+    {ok, books_shop:order()} | {error, term()}.
+
 main() ->
     handle_create_order(books_shop:test_data()).
 
 
--spec handle_create_order(map()) -> {ok, books_shop:order()} | {error, term()}.
+-spec handle_create_order(map()) ->
+    {ok, books_shop:order()} | {error, term()}.
+
 handle_create_order(Data0) ->
     case books_shop:validate_incoming_data(Data0) of
         {error, Reason} -> {error, Reason};

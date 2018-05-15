@@ -8,7 +8,9 @@ main() ->
     handle_create_order(books_shop:test_data()).
 
 
--spec handle_create_order(map()) -> {ok, books_shop:order()} | {error, term()}.
+-spec handle_create_order(map()) ->
+    {ok, books_shop:order()} | {error, term()}.
+
 handle_create_order(Data0) ->
     try
         Data = books_shop:validate_incoming_data_ex(Data0),
