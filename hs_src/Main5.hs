@@ -34,5 +34,5 @@ get_book_strs _ = [ ("Domain Modeling Made Functional", "Scott Wlaschin")
 main :: IO()
 main =
   case handle_create_order "My JSON Data" of
-    Right order -> putStrLn $ show order
-    Left error -> putStrLn $ show error
+    Right order -> print order
+    Left error -> print error
