@@ -5,7 +5,7 @@ data Cat = Cat String deriving Show
 data Address = Address String deriving Show
 
 data Book =
-  Book {id :: String
+  Book { id :: String
        , title :: String
        , author :: String
        } deriving Show
