@@ -171,7 +171,4 @@ get_book_ex(Title, Author) ->
 -spec rand_success() -> boolean().
 rand_success() ->
     Rand = rand:uniform(10),
-    if
-        Rand > 1 -> true;
-        true -> false
-    end.
+    Rand > 1.
