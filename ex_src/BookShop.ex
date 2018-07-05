@@ -64,6 +64,36 @@ defmodule BookShop do
   end
 
 
+  @spec validate_address(binary) :: {:ok, address} | {:error, :invalid_address}
+  def validate_address address do
+    case rand_success() do
+      true -> {:ok, {:address, address}}
+      false -> {:error, :invalid_address}
+    end
+  end
+
+
+  @spec get_book(binary, binary) :: {:ok, Book.t} | {:error, {:book_not_found, binary}}
+  def get_book title, author do
+    case rand_success() do
+      true -> {:ok,
+                %Book {
+                  id: "ISBN 978-5-00057-917-6",
+                  title: title,
+                  author: author
+                }
+              }
+      false -> {:error, {:book_not_found, title}}
+    end
+  end
+
+
+  @spec create_order(cat, address, [Book.t]) :: Order.t
+  def create_order cat, address, books do
+    %Order { customer: cat, shipping_address: address, books: books }
+  end
+
+
   # Internal functions
 
   @spec rand_success() :: boolean
