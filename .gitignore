@@ -2,3 +2,4 @@
 *.iml
 *.beam
 _build
+deps

@@ -21,3 +21,5 @@
 mix compile
 iex -S mix
 r MyModule
+
+http://elixirschool.com/ru/lessons/specifics/debugging/
