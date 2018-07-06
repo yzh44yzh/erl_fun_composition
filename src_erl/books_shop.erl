@@ -8,11 +8,11 @@
     validate_cat/1,
     validate_address/1,
     get_book/2,
+    create_order/3,
     validate_incoming_data_ex/1,
     validate_cat_ex/1,
     validate_address_ex/1,
-    get_book_ex/2,
-    create_order/3
+    get_book_ex/2
 ]).
 
 

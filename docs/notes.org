@@ -3,6 +3,7 @@
 mix compile
 iex -S mix
 > BookShop.test_data
+> Main1.main
 
 r MyModule
 

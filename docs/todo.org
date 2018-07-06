@@ -1,6 +1,7 @@
 * erlang
 
 - review & refactor
+  along with working on elixir version
 
 
 * elixir

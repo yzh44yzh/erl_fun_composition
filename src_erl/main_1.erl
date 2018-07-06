@@ -16,12 +16,11 @@ main() ->
 handle_create_order(Data0) ->
     case books_shop:validate_incoming_data(Data0) of
         {error, Reason} -> {error, Reason};
-        {ok, Data} ->
-            #{
+        {ok, #{
                 <<"cat">> := Cat0,
                 <<"address">> := Address0,
                 <<"books">> := Books0
-            } = Data,
+            }} ->
             case books_shop:validate_cat(Cat0) of
                 {error, Reason} -> {error, Reason};
                 {ok, Cat} ->
