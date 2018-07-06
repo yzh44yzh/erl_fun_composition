@@ -2,6 +2,8 @@
 
 mix compile
 iex -S mix
+> BookShop.test_data
+
 r MyModule
 
 http://elixirschool.com/ru/lessons/specifics/debugging/
@@ -10,12 +12,20 @@ mix dialyzer
 
 * erlang
 
-how to compile and run
+rebar3 compile
+rebar3 shell
+> main_1:main().
+> main_2:main().
+> main_3:main().
+> main_4:main().
+> main_5:main().
 
 
 * haskell
 
-how to compile and run
+make compile
+make main_4
+make main_5
 
 
 * monads in elixir

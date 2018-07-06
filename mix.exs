@@ -5,7 +5,7 @@ defmodule BookShopProject do
     [
       app: :book_shop,
       version: "1.0.0",
-      elixirc_paths: ["ex_src"],
+      elixirc_paths: ["src_ex"],
       deps: deps()
     ]
   end

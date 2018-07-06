@@ -1,13 +1,9 @@
 * erlang
 
-- rename src to src_erl
-
 - review & refactor
 
 
 * elixir
-
-- src_ex
 
 - main 1
 
@@ -22,13 +18,8 @@
 
 * haskell
 
-- src_hs
-
 - review & refactor
 
-- Makefile
-  - compile all
-  - 5 runs for 5 variants
 
 * text
 
