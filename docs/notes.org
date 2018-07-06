@@ -1,0 +1,58 @@
+* elixir
+
+mix compile
+iex -S mix
+r MyModule
+
+http://elixirschool.com/ru/lessons/specifics/debugging/
+mix dialyzer
+
+
+* erlang
+
+how to compile and run
+
+
+* haskell
+
+how to compile and run
+
+
+* monads in elixir
+
+https://hex.pm/packages/monad
+https://hexdocs.pm/monad/Monad.Error.html
+http://www.zohaib.me/monads-in-elixir-2/
+
+
+* Какие вообще есть способы композиции?
+
+точка, $, & или |> (pipe)
+<$>, <*>
+>>= bind, >> fmap
+=<<
+<=< >=> рыба
+
+В эликсире
+только |>
+еще есть макрос with
+
+В эрланге ничего
+
+Реализация в Erlang работает только для одного типа возвращаемого значения: {ok, _} | {error, _}.
+В Haskell это работает для любой монады.
+
+
+* pipeline
+
+В чем разница между pipeline & do-notation?
+
+В pipeline через все функции прокидывается State.
+Значит, комбинировать можно только такие функции, которые знают про этот State и умеют с ним работать.
+
+В do-notation State существует отдельно от функций, и комбинировать можно любые функции.
+
+
+* макрос with
+
+сравнить с do-notation
