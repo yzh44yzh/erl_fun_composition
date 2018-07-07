@@ -20,7 +20,18 @@ defmodule Main1 do
                     {:ok, cat} ->
                         case BookShop.validate_address address0 do
                             {:error, reason} -> {:error, reason}
-                            {:ok, address} -> {:error, :some}
+                            {:ok, address} ->
+                            books1 = Enum.map books0,
+                                              fn %{"title" => title, "author" => author} ->
+                                                  BookShop.get_book title, author
+                                              end
+                            invalid_books = Enum.filter books1, fn {res, _} -> res == :error end
+                            case invalid_books do
+                                [{:error, reason} | _] -> {:error, reason}
+                                [] ->
+                                    books2 = Enum.map books1, fn {:ok, book} -> book end
+                                    BookShop.create_order cat, address, books2
+                            end
                         end
                 end
         end

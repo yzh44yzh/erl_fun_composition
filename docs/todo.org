@@ -6,8 +6,6 @@
 
 * elixir
 
-- main 1
-
 - main 2
 
 - main 3
@@ -25,7 +23,10 @@
 * text
 
 - README
-  consider all notes
+  - fix links to files
+  - consider all notes
+  - rewrite
 
 - Presenation
-  links to code
+  - fix links
+  - remake
