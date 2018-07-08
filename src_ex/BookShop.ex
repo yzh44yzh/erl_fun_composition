@@ -7,14 +7,12 @@ defmodule BookShop do
 
     defmodule Book do
         defstruct [:id, :title, :author]
-        @enforce_keys [:id, :title, :author]
         @type t :: %Book{id: binary, title: binary, author: binary}
     end
 
     defmodule Order do
         alias BookShop, as: BS
         defstruct [:customer, :shipping_address, :books]
-        @enforce_keys [:customer, :shipping_address, :books]
         @type t :: %Order{customer: BS.cat, shipping_address: BS.address, books: [Book.t]}
     end
 
@@ -91,6 +89,47 @@ defmodule BookShop do
     @spec create_order(cat, address, [Book.t]) :: Order.t
     def create_order cat, address, books do
         %Order { customer: cat, shipping_address: address, books: books }
+    end
+
+
+    @spec validate_incoming_data_ex(map) :: map
+    def validate_incoming_data_ex json_data do
+        case rand_success() do
+            true -> json_data
+            false -> throw {:error, :invalid_incoming_data}
+        end
+    end
+
+
+    @spec validate_cat_ex(binary) :: cat
+    def validate_cat_ex cat_name do
+        case rand_success() do
+            true -> {:cat, cat_name}
+            false -> throw {:error, :cat_not_found}
+        end
+    end
+
+
+    @spec validate_address_ex(binary) :: address
+    def validate_address_ex address do
+        case rand_success() do
+            true -> {:address, address}
+            false -> throw {:error, :invalid_address}
+        end
+    end
+
+
+    @spec get_book_ex(binary, binary) :: Book.t
+    def get_book_ex title, author do
+        case rand_success() do
+            true ->
+                %Book {
+                    id: "ISBN 978-5-00057-917-6",
+                    title: title,
+                    author: author
+                }
+            false -> throw {:error, {:book_not_found, title}}
+        end
     end
 
 
