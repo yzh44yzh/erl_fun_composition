@@ -30,7 +30,7 @@ validate_cat(#{<<"cat">> := Cat0} = State) ->
 
 -spec validate_address(map()) -> {ok, map()} | {error, term()}.
 validate_address(#{<<"address">> := Address0} = State) ->
-    case books_shop:validate_cat(Address0) of
+    case books_shop:validate_address(Address0) of
         {ok, Address} -> {ok, State#{address => Address}};
         Error -> Error
     end.
