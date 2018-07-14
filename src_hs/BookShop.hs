@@ -1,5 +1,7 @@
 module BookShop where
 
+import qualified System.Random as SR
+
 data Cat = Cat String deriving Show
 
 data Address = Address String deriving Show
@@ -52,3 +54,14 @@ get_book title author =
 create_order :: Cat -> Address -> [Book] -> Order
 create_order cat address books =
   Order cat address books
+
+
+-- internal functions
+
+rand_success :: Int -> Bool
+rand_success seed =
+  SR.mkStdGen seed |> SR.randomR (1 :: Int, 9 :: Int) |> fst |> (1 <)
+
+
+(|>) :: a -> (a -> b) -> b
+(|>) a f = f a

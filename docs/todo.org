@@ -1,16 +1,3 @@
-
-* erlang
-
-- main 6
-  may be I can found proper lib with monads and do-notation
-  see links in evernote
-
-
-* haskell
-
-- review & refactor
-
-
 * text
 
 - README
@@ -21,3 +8,22 @@
 - Presenation
   - fix links
   - remake
+
+
+* erlang
+
+- read this
+https://github.com/rabbitmq/erlando
+https://github.com/fogfish/datum
+https://github.com/yzh44yzh/erlz
+
+- main 6
+  use erlando
+
+
+* haskell
+
+random затащить не получится без IO во всех функциях в BookShop, что ломает напрочь всю идею.
+
+Тут нужна другая концепция:
+нужно иметь несколько разных входящих данных: валидных, и невалидных в разных местах.

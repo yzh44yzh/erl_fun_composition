@@ -1,4 +1,6 @@
-* elixir
+* compile & run
+
+** elixir
 
 mix compile
 iex -S mix
@@ -11,7 +13,7 @@ http://elixirschool.com/ru/lessons/specifics/debugging/
 mix dialyzer
 
 
-* erlang
+** erlang
 
 rebar3 compile
 rebar3 shell
@@ -22,14 +24,23 @@ rebar3 shell
 > main_5:main().
 
 
-* haskell
+** haskell
 
 make compile
 make main_4
 make main_5
 
 
-* monads in elixir
+* fp notes
+
+** monads in erlang
+
+https://github.com/rabbitmq/erlando
+https://github.com/fogfish/datum
+https://github.com/yzh44yzh/erlz
+
+
+** monads in elixir
 
 With:
 https://elixir-lang.org/getting-started/mix-otp/docs-tests-and-with.html#with
@@ -41,7 +52,7 @@ https://hex.pm/packages/monad
 https://hexdocs.pm/monad/Monad.Error.html
 
 
-* Какие вообще есть способы композиции?
+** Какие вообще есть способы композиции?
 
 точка, $, & или |> (pipe)
 <$>, <*>
@@ -59,7 +70,7 @@ https://hexdocs.pm/monad/Monad.Error.html
 В Haskell это работает для любой монады.
 
 
-* pipeline
+** pipeline
 
 В чем разница между pipeline & do-notation?
 
@@ -67,8 +78,3 @@ https://hexdocs.pm/monad/Monad.Error.html
 Значит, комбинировать можно только такие функции, которые знают про этот State и умеют с ним работать.
 
 В do-notation State существует отдельно от функций, и комбинировать можно любые функции.
-
-
-* макрос with
-
-сравнить с do-notation
