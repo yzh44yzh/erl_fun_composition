@@ -1,9 +1,9 @@
 
-* elixir
+* erlang
 
-- main 5
-  + with
-  - monads
+- main 6
+  may be I can found proper lib with monads and do-notation
+  see links in evernote
 
 
 * haskell

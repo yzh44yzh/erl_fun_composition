@@ -11,7 +11,10 @@ defmodule BookShopProject do
   end
 
   defp deps do
-    [{:dialyxir, "~> 0.5", only: [:dev]}]
+    [
+        {:dialyxir, "~> 0.5", only: [:dev]},
+        {:monad, "~> 1.0.5"}
+    ]
   end
 
 end
