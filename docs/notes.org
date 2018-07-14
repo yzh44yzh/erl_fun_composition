@@ -31,9 +31,14 @@ make main_5
 
 * monads in elixir
 
+With:
+https://elixir-lang.org/getting-started/mix-otp/docs-tests-and-with.html#with
+https://hexdocs.pm/elixir/Kernel.SpecialForms.html#with/1
+
+Monad:
+http://www.zohaib.me/monads-in-elixir-2/
 https://hex.pm/packages/monad
 https://hexdocs.pm/monad/Monad.Error.html
-http://www.zohaib.me/monads-in-elixir-2/
 
 
 * Какие вообще есть способы композиции?

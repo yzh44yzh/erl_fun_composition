@@ -1,14 +1,9 @@
-* erlang
-
-- review & refactor
-  along with working on elixir version
-
 
 * elixir
 
-- main 4
-
 - main 5
+  + with
+  - monads
 
 
 * haskell

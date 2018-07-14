@@ -2,8 +2,7 @@ defmodule Main3 do
 
     @spec main :: {:ok, BookShop.Order.t} | {:error, term}
     def main do
-        data = BookShop.test_data
-        handle_create_order data
+        BookShop.test_data |> handle_create_order
     end
 
 
