@@ -1,10 +1,10 @@
 * text
 
 - README
-  - Main6
   - main_6
-  - pipeline vs do-notation
   - check links
+  - вычитка
+  - spell check
 
 - Presenation
   - erl -- fix links
