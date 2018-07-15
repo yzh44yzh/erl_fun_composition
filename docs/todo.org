@@ -1,10 +1,5 @@
 * text
 
-- README
-  - форматирование, bold вместо italic
-  - Erlang, Elixir, Haskell -- везде по-английски
-  - spell check
-
 - Presenation
   - erl -- fix links
   - ex -- сделать заново
