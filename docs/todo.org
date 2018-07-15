@@ -1,8 +1,8 @@
 * text
 
 - README
-  - check links
-  - вычитка
+  - форматирование, bold вместо italic
+  - Erlang, Elixir, Haskell -- везде по-английски
   - spell check
 
 - Presenation
