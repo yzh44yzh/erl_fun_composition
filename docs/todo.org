@@ -1,7 +1,6 @@
 * text
 
 - README
-  - main_6
   - check links
   - вычитка
   - spell check
