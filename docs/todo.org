@@ -1,13 +1,14 @@
 * text
 
 - README
-  - fix links to files
-  - consider all notes
-  - rewrite
+  - Main6
+  - main_6
+  - pipeline vs do-notation
+  - check links
 
 - Presenation
-  - fix links
-  - remake
+  - erl -- fix links
+  - ex -- сделать заново
 
 
 * haskell
