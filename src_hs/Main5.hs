@@ -1,38 +1,23 @@
 module Main where
 
 import qualified BookShop as BS
-
+import qualified System.Random as SR
 
 handle_create_order :: BS.JsonData -> Either BS.ValidationError BS.Order
 handle_create_order json_data =
   do
-    json_data2 <- BS.validate_incoming_data json_data
-    let cat_name = get_cat_name json_data2
-    let addr_str = get_addr_str json_data2
-    let book_strs = get_book_strs json_data2
+    (cat_name, addr_str, book_strs) <- BS.validate_incoming_data json_data
     cat <- BS.validate_cat cat_name
     address <- BS.validate_address addr_str
     books <- sequence $ map (\(t, a) -> BS.get_book t a) book_strs
-    let order = BS.create_order cat address books
-    Right order
-
-
-get_cat_name :: BS.JsonData -> String
-get_cat_name _ = "Tihon"
-
-
-get_addr_str :: BS.JsonData -> String
-get_addr_str _ = "Coolcat str 7/42 Minsk Belarus"
-
-
-get_book_strs :: BS.JsonData -> [(String, String)]
-get_book_strs _ = [ ("Domain Modeling Made Functional", "Scott Wlaschin")
-                  , ("Distributed systems for fun and profit", "Mikito Takada")
-                  ]
+    Right $ BS.create_order cat address books
 
 
 main :: IO()
 main =
-  case handle_create_order "My JSON Data" of
-    Right order -> print order
-    Left error -> print error
+  do
+    rand <- SR.randomRIO (1 :: Integer, 2 :: Integer)
+    let test_data = if rand == 1 then BS.test_data else BS.test_data'
+    case handle_create_order test_data of
+      Right order -> print order
+      Left error -> print error

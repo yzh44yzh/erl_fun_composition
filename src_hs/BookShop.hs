@@ -26,7 +26,23 @@ data ValidationError
   deriving Show
 
 
-type JsonData = String
+type JsonData = (String, String, [(String, String)])
+
+test_data :: JsonData
+test_data =
+    ("Tihon", "Coolcat str 7/42 Minsk Belarus",
+    [ ("Scott Wlaschin", "Domain Modeling Made Functional")
+    , ("Стивен Строгац", "Удовольствие от Х")
+    , ("Mikito Takada", "Distributed systems for fun and profit")
+    ])
+
+
+test_data' :: JsonData
+test_data' =
+    ("Marfa", "Coolcat str 7/42 Minsk Belarus",
+    [ ("Scott Wlaschin", "Domain Modeling Made Functional")
+    , ("Mikito Takada", "Distributed systems for fun and profit")
+    ])
 
 
 validate_incoming_data :: JsonData -> Either ValidationError JsonData
@@ -36,14 +52,14 @@ validate_incoming_data json_data =
 
 validate_cat :: String -> Either ValidationError Cat
 validate_cat cat_name =
-  Right $ Cat cat_name
-  -- Left CatNotFound
+  case cat_name of
+    "Tihon" -> Right $ Cat cat_name
+    _ -> Left CatNotFound
 
 
 validate_address :: String -> Either ValidationError Address
 validate_address addr_str =
   Right $ Address addr_str
-  -- Left InvalidAddress
 
 
 get_book :: String -> String -> Either ValidationError Book
@@ -54,14 +70,3 @@ get_book title author =
 create_order :: Cat -> Address -> [Book] -> Order
 create_order cat address books =
   Order cat address books
-
-
--- internal functions
-
-rand_success :: Int -> Bool
-rand_success seed =
-  SR.mkStdGen seed |> SR.randomR (1 :: Int, 9 :: Int) |> fst |> (1 <)
-
-
-(|>) :: a -> (a -> b) -> b
-(|>) a f = f a
